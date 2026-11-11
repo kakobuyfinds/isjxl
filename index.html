@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>BBDBuy spreadsheet | Category Guide, Sizing &amp; QC Photos</title>
+  <meta name="description" content="Use this BBDBuy spreadsheet guide to browse CAFANS categories, compare shoe and clothing measurements, review QC photos and estimate delivery costs.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BBDBuy spreadsheet | Category Guide, Sizing &amp; QC Photos">
+  <meta property="og:description" content="Browse ten CAFANS categories and learn what to check on a listing, in QC photos and before international delivery.">
+  <meta name="theme-color" content="#f7f4ec">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <!--
+    Filename: index.html
+    Direct access to the Bing results page was unavailable, so Bing first-page
+    positions could not be verified. General web search returned the following
+    reference pages. Recurring topics included category browsing, listing IDs,
+    size and color variants, QC photos, and shipping preparation.
+    https://bbdbuy-sheet.com/spreadsheet
+    https://repsheet.net/spreadsheet/bbdbuy
+    https://bbdbuy.net/
+    https://sopel.fit/bbdbuy-spreadsheet
+    https://bbdbuy.app/articles/bbdbuy-spreadsheet-with-qc-guide
+    https://bbdbuy-spreadsheet.org/
+    https://bbdbuy.app/qc-finds
+    https://bbdbuy.app/bbdbuy-spreadsheet
+    https://bbdspread.com/
+    https://www.bbdbuyspreadsheet.com/
+  -->
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ec;
+      --card: #fffcf5;
+      --ink: #20251f;
+      --muted: #505a50;
+      --green: #194d40;
+      --line: #c9cfc3;
+      --sand: #eee5d4;
+      --rust: #913e29;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 1rem/1.6 system-ui, sans-serif;
+    }
+
+    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3 { line-height: 1.13; }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; }
+    h1 { font-size: clamp(2.65rem, 7vw, 5.9rem); letter-spacing: -.055em; }
+    h2 { font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -.035em; }
+    h3 { font-size: 1.16rem; }
+    a { color: var(--green); text-underline-offset: .2em; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--rust);
+      outline-offset: 4px;
+    }
+
+    .wrap { width: min(71rem, calc(100% - 2rem)); margin-inline: auto; }
+    .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .65rem 1rem;
+      padding-block: .85rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wordmark {
+      color: var(--ink);
+      font-weight: 800;
+      letter-spacing: .025em;
+      text-decoration: none;
+    }
+
+    .bar > a:last-child { display: inline-flex; align-items: center; min-height: 44px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.18fr .82fr;
+      align-items: center;
+      gap: clamp(1rem, 5vw, 4.5rem);
+      padding-block: clamp(1.5rem, 5vw, 3.5rem);
+    }
+
+    .hero p { max-width: 52ch; margin-top: 1rem; }
+    .intro { color: var(--muted); font-size: 1.08rem; }
+    .hero figure { min-width: 0; }
+    .hero img, .visuals img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background: #fbfaf7;
+    }
+
+    .hero figure, .visuals figure { border: 1px solid var(--line); }
+    figcaption { padding: .6rem .8rem; color: var(--muted); font-size: .875rem; }
+
+    .section { padding-block: clamp(1.5rem, 4vw, 3rem); border-top: 1px solid var(--line); }
+    .section > p { max-width: 70ch; margin-top: .6rem; color: var(--muted); }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: .55rem;
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .categories a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .4rem;
+      min-height: 52px;
+      height: 100%;
+      padding: .55rem .7rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      font-size: .94rem;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+      text-decoration: none;
+    }
+
+    .categories a:hover { background: var(--green); color: white; }
+    .categories span { flex: none; }
+
+    .guides, .visuals { display: grid; gap: .75rem; margin-top: 1rem; }
+    .guides { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .visuals { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .guide { padding: clamp(1rem, 3vw, 1.55rem); background: var(--sand); }
+    .guide p { margin-top: .65rem; }
+    .faq { max-width: 52rem; margin-top: 1rem; }
+    details { border-bottom: 1px solid var(--line); }
+    details:first-child { border-top: 1px solid var(--line); }
+    summary { min-height: 44px; padding: .7rem 0; cursor: pointer; font-weight: 700; }
+    details p { padding: 0 .25rem .85rem 0; max-width: 68ch; }
+
+    footer {
+      padding-block: 1.25rem 2rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    footer p + p { margin-top: .55rem; }
+
+    @media (max-width: 55rem) {
+      .categories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .visuals { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 38rem) {
+      .hero, .guides { grid-template-columns: 1fr; }
+      .categories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero img { aspect-ratio: 16 / 9; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "name": "BBDBuy spreadsheet",
+        "inLanguage": "en",
+        "description": "An independent guide to browsing CAFANS categories, comparing product measurements, reviewing QC photos and estimating delivery costs.",
+        "mainEntity": {
+          "@type": "ItemList",
+          "name": "CAFANS product categories",
+          "numberOfItems": 10,
+          "itemListElement": [
+            {"@type":"ListItem","position":1,"name":"Shoes","url":"https://cafans.com/category-911-Shoes.html"},
+            {"@type":"ListItem","position":2,"name":"Hoodies/Sweaters","url":"https://cafans.com/category-912-Hoodies%2FSweaters.html"},
+            {"@type":"ListItem","position":3,"name":"T-Shirts","url":"https://cafans.com/category-913-T-Shirts.html"},
+            {"@type":"ListItem","position":4,"name":"Jackets","url":"https://cafans.com/category-914-Jackets.html"},
+            {"@type":"ListItem","position":5,"name":"Pants/Shorts","url":"https://cafans.com/category-915-Pants%2FShorts.html"},
+            {"@type":"ListItem","position":6,"name":"Headwear","url":"https://cafans.com/category-916-Headwear.html"},
+            {"@type":"ListItem","position":7,"name":"Sets","url":"https://cafans.com/category-917-Sets.html"},
+            {"@type":"ListItem","position":8,"name":"Underwear/underpants","url":"https://cafans.com/category-918-underwear%2Funderpants.html"},
+            {"@type":"ListItem","position":9,"name":"Jersey","url":"https://cafans.com/category-919-Jersey.html"},
+            {"@type":"ListItem","position":10,"name":"Accessories","url":"https://cafans.com/category-920-Accessories.html"}
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "name": "BBDBuy spreadsheet FAQ",
+        "inLanguage": "en",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a BBDBuy spreadsheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is a shopping reference that groups product links and comparison notes by category. This guide uses CAFANS category links and explains how to evaluate listings and product photos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I find the right shoe size?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Measure both feet in centimeters, use the longer measurement, and compare it with the seller’s chart for that model. Check whether the chart gives recommended foot length or the physical insole length."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are older QC photos useful?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, as a reference for details to inspect. For your decision, look for photos tied to the exact listing, color, and size you selected. Photos alone cannot establish authenticity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should I include in an international delivery estimate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Include the item price, domestic delivery, applicable service fees, international freight, and any destination taxes or carrier charges. Use your destination and the packed parcel dimensions when requesting a shipping quote."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/isjxl/">
+</head>
+<body>
+  <header class="wrap bar">
+    <a class="wordmark" href="https://www.cafans.com">CAFANS.COM</a>
+    <a href="https://www.cafans.com">Open CAFANS</a>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">BBDBuy spreadsheet</h1>
+        <p class="intro">Start with a CAFANS category, then compare the details that matter for your purchase. This independent guide covers product links, size charts, quality-control photos and delivery costs.</p>
+      </div>
+      <figure>
+        <img
+          src="https://alssports.vteximg.com.br/arquivos/ids/3880705/10613661x1238466_alt1.jpg?v=639047806774730000"
+          width="640" height="480" alt="Nike Air Force 1 Texture sneaker"
+          fetchpriority="high" loading="eager">
+        <figcaption>Nike Air Force 1 Texture · Editorial reference</figcaption>
+      </figure>
+    </section>
+
+    <nav class="section" aria-labelledby="categories-title">
+      <h2 id="categories-title">Browse by category</h2>
+      <ul class="categories">
+        <li><a href="https://cafans.com/category-911-Shoes.html">Shoes <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hoodies/Sweaters <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-913-T-Shirts.html">T-Shirts <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-914-Jackets.html">Jackets <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-915-Pants%2FShorts.html">Pants/Shorts <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-916-Headwear.html">Headwear <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-917-Sets.html">Sets <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-918-underwear%2Funderpants.html">Underwear/underpants <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-919-Jersey.html">Jersey <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-920-Accessories.html">Accessories <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </nav>
+
+    <section class="section" aria-labelledby="guides-title">
+      <h2 id="guides-title">Shopping guides</h2>
+      <div class="guides">
+        <article class="guide">
+          <h3>BBDBuy product links and listing details</h3>
+          <p>When you save a seller product link, record the item ID, selected color, size variant and the date you checked it. Two similar listing photos can belong to different products. Open each listing again before placing an order and confirm the current stock status and seller return window.</p>
+          <p>For a clothing set, check whether the listing includes both pieces and whether each size can be selected separately. For jerseys, verify the name and number on the chosen variant. For underwear, check the pack quantity and the seller’s return terms.</p>
+        </article>
+
+        <article class="guide">
+          <h3>BBDBuy size guide for shoes and clothing</h3>
+          <p>A sneaker size chart may show recommended foot length, insole length or both. Confirm which measurement it uses before comparing EU and US shoe sizes. For hoodies, tees and jackets, lay a garment you already wear flat and compare its chest width, shoulder width, sleeve length and back length with the listing.</p>
+          <p>Use the waist width, rise and inseam for pants or shorts. Double a flat waist measurement only when the chart specifies circumference. For caps, compare head circumference and the adjustment range.</p>
+        </article>
+
+        <article class="guide">
+          <h3>BBDBuy QC photos and visual checks</h3>
+          <p>Quality-control photos are most informative when they match the selected variant. For sneakers, request a pair photo and look for heel alignment, outsole condition and the size label. For jackets, examine the zipper, seams and any marks in daylight. Compare measurements against a readable ruler when fit is important.</p>
+          <p>For scarves, ask for the full print and a close-up of the edges. For jewelry, check the clasp, chain length and surface finish. If a listing mentions a specific material, record the seller’s description and request supporting documentation when that detail matters.</p>
+        </article>
+
+        <article class="guide">
+          <h3>BBDBuy shipping checklist</h3>
+          <p>For a landed-cost estimate, separate the item subtotal, domestic shipping, service fees and international freight. Ask which shipping method uses actual parcel weight or volumetric weight, and compare quotes using the same packed dimensions and destination.</p>
+          <p>Before dispatch, confirm the recipient address, tracking coverage and the process for a delivery claim. Check any applicable import charges for your destination and keep the order confirmation and parcel tracking number together.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="photos-title">
+      <h2 id="photos-title">Details worth a closer look</h2>
+      <p>These brand images illustrate product details. The captions describe what to compare in a seller’s own photos.</p>
+      <div class="visuals">
+        <figure>
+          <img
+            src="https://in.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-workwear-lv-denim-jacket--HTA50WPCP65L_PM2_Front%20view.jpg"
+            width="400" height="300" alt="Front view of a Louis Vuitton Workwear LV denim jacket"
+            loading="lazy" decoding="async">
+          <figcaption>Louis Vuitton denim jacket · Compare pocket placement and front stitching.</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="https://media.gucci.com/style/HEXFBFBFB_South_0_160_640x640/1751298339/838745_3HBC4_2600_001_100_0000_Light.jpg"
+            width="400" height="300" alt="Gucci GG canvas baseball cap"
+            loading="lazy" decoding="async">
+          <figcaption>Gucci cap · Check the brim shape and ask for a rear view of the closure.</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="https://carresociety.com/cdn/shop/files/carre-foulard-hermes-les-cles-bleu-ciel1.jpg?v=1712830233&amp;width=480"
+            width="400" height="300" alt="Hermès Les Clés silk scarf with a pale blue border"
+            loading="lazy" decoding="async">
+          <figcaption>Hermès silk scarf · Compare the border, overall dimensions and hem.</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="https://assets.christiandior.com/is/image/diorprod/N1713MTGMTD300_E01?%24default_GH%24=&amp;crop=473%2C408%2C1047%2C1033&amp;extend=0%2C0%2C0%2C250&amp;wid=480"
+            width="400" height="300" alt="Dior 30 Montaigne short necklace"
+            loading="lazy" decoding="async">
+          <figcaption>Dior necklace · Compare the chain length and request a photo of the clasp.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>What is a BBDBuy spreadsheet?</summary>
+          <p>It is a shopping reference that groups product links and comparison notes by category. This guide uses CAFANS category links and explains how to evaluate listings and product photos.</p>
+        </details>
+        <details>
+          <summary>How do I find the right shoe size?</summary>
+          <p>Measure both feet in centimeters, use the longer measurement, and compare it with the seller’s chart for that model. Check whether the chart gives recommended foot length or the physical insole length.</p>
+        </details>
+        <details>
+          <summary>Are older QC photos useful?</summary>
+          <p>Yes, as a reference for details to inspect. For your decision, look for photos tied to the exact listing, color, and size you selected. Photos alone cannot establish authenticity.</p>
+        </details>
+        <details>
+          <summary>What should I include in an international delivery estimate?</summary>
+          <p>Include the item price, domestic delivery, applicable service fees, international freight, and any destination taxes or carrier charges. Use your destination and the packed parcel dimensions when requesting a shipping quote.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>This independent guide uses brand imagery for editorial reference. Confirm stock, product specifications and purchase terms on the relevant listing.</p>
+    <p><a href="https://www.cafans.com">Visit CAFANS.COM</a></p>
+  </footer>
+</body>
+</html>
